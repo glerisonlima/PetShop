@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="/layout/LayoutPadrao">
+
+<section layout:fragment="conteudo">
+	<div class="container">
+		<div class="section">
+		<h2>Cadastro do Cliente</h2>
+			<form method="post" th:object="${cliente}" th:action="@{/cliente}">
+				<input type="hidden" th:field="*{id}"/>
+				<div class="form-row">
+				  <div class="form-group col-md-8">
+				    <label for="nome">Nome</label>
+				    <input type="text" class="form-control" id="nome" placeholder="Nome do cliente" th:field="*{nome}" required="required"/>
+				  </div>
+				  <div class="form-group col-md-4">
+				    <label for="apelido">Apelido</label>
+				    <input type="text" class="form-control" id="apelido" placeholder="Apelido do cliente" th:field="*{apelido}"/>
+				  </div>
+			  </div>
+			  <div class="form-row">
+			  	<div class="form-group col-md-2">
+				   <label for="cep">Cep</label>
+				   <input type="text" class="form-control" id="cep" placeholder="Cep da rua" th:field="*{cep}"/>
+				</div>	
+				<div class="form-group col-md-6">
+				   <label for="endereco">Endereço</label>
+				   <input type="text" class="form-control" id="endereco" placeholder="Nome da rua" th:field="*{endereco}"/>
+				</div>
+				<div class="form-group col-md-1">
+				   <label for="numero">Numero</label>
+				   <input type="text" class="form-control" id="numero" th:field="*{numero}"/>
+				</div>
+				<div class="form-group col-md-3">
+				   <label for="bairro">Bairro</label>
+				   <input type="text" class="form-control" id="bairro" placeholder="Nome do Bairro" th:field="*{bairro}"/>
+				</div>	
+			  </div>
+			  <div class="form-row">
+			  	<div class="form-group col-md-2">
+				   <label for="cidade">Cidade</label>
+				   <input type="text" class="form-control" id="cidade" th:field="*{cidade}"/>
+				</div>
+				<div class="form-group col-md-2">
+					<label for="estado">Estado(UF)</label>
+				   <input type="text" class="form-control" id="estado" th:field="*{estado}"/>				   
+				 </div>
+				 <div class="form-group col-md-2">
+				   <label for="tel1">Telefone</label>
+				   <input type="text" class="form-control" id="tel1" th:field="*{tel1}"/>
+				</div>
+				<div class="form-group col-md-2">
+				   <label for="tel2">Telefone 2</label>
+				   <input type="text" class="form-control" id="tel2" th:field="*{tel2}"/>
+				</div>
+				<div class="form-group col-md-2">
+				   <label for="cel">Celular</label>
+				   <input type="text" class="form-control" id="cel" th:field="*{cel}"/>
+				</div>
+				<div class="form-group col-md-2">
+				   <label for="whatsapp">Whatsapp</label>
+				   <input type="text" class="form-control" id="whatsapp" th:field="*{whatsapp}"/>
+				</div>
+			  </div>
+			  <div class="form-row">
+			  	<div class="form-group col-md-4">
+			      <label for="email">E-mail</label>
+			      <input type="email" class="form-control" id="email" placeholder="Email" th:field="*{email}"/>
+			    </div>
+			    <div class="form-group col-md-2">
+				   <label for="cnpj">Cnpj</label>
+				   <input type="text" class="form-control" id="cnpj" th:field="*{cnpj}"/>
+				</div>
+				<div class="form-group col-md-2">
+				   <label for="ie">IE</label>
+				   <input type="text" class="form-control" id="ie" th:field="*{ie}"/>
+				</div>
+				<div class="form-group col-md-2">
+				   <label for="cpf">Cpf</label>
+				   <input type="text" class="form-control" id="cpf" th:field="*{cpf}"/>
+				</div>
+				<div class="form-group col-md-2">
+				   <label for="rg">Rg</label>
+				   <input type="text" class="form-control" id="rg" th:field="*{rg}"/>
+				</div>
+			  </div>
+			  <div class="form-row">
+			  	<div class="form-group col-md-6">
+				   <label for="complemento">Complemento</label>
+				   <input type="text" class="form-control" id="complemento" th:field="*{complemento}"/>
+				</div>
+				<div class="form-group col-md-2">
+				   <label for="dataCadastro">Data de Cadastro</label>
+				   <input type="date" class="form-control" id="dataCadastro" th:field="*{dataCadastro}"/>
+				</div>
+				<div class="form-group col-md-2">
+				   <label for="dataNascimento">Data de Nascimento</label>
+				   <input type="date" class="form-control" id="dataNascimento" th:field="*{dataNascimento}"/>
+				</div>
+				<div class="form-group form-check">
+					<label></label>
+				    <input type="checkbox" class="form-check-input" id="status" th:field="*{status}"/>
+				    <label class="form-check-label" for="status">Bloqueado</label>
+				</div>
+			  </div>
+			  <div class="row">  			  
+				  <button type="submit" class="btn btn-primary">Salvar</button>
+				  <a class="btn btn-light" style="margin-left: 10px;" th:href="@{/clientes}">Voltar</a>
+			  </div>
+			</form>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+$(document).ready(function () { 
+    var $cpf = $("#cpf");
+    $cpf.mask('000.000.000-00', {reverse: false});
+});
+
+$(document).ready(function () { 
+    var $tel1 = $("#tel1");
+    $tel1.mask('(00) 0000-0000', {reverse: false});
+});
+$(document).ready(function () { 
+    var $tel2 = $("#tel2");
+    $tel2.mask('(00) 0000-0000', {reverse: false});
+});
+$(document).ready(function () { 
+    var $cel = $("#cel");
+    $cel.mask('(00) 00000-0000', {reverse: false});
+});
+$(document).ready(function () { 
+    var $whatsapp = $("#whatsapp");
+    $whatsapp.mask('(00) 00000-0000', {reverse: false});
+});
+$(document).ready(function () { 
+    var $cnpj = $("#cnpj");
+    $cnpj.mask('00.000.000/0000-00', {reverse: false});
+});
+$(document).ready(function () { 
+    var $rg = $("#rg");
+    $rg.mask('0000000000000', {reverse: false});
+});
+</script>
+<!-- Adicionando Javascript -->
+	<script type="text/javascript">
+		$(document)
+				.ready(
+						function() {
+
+							function limpa_formulário_cep() {
+								// Limpa valores do formulário de cep.
+								$("#endereco").val("");
+								$("#bairro").val("");
+								$("#cidade").val("");
+								$("#estado").val("");
+							}
+
+							//Quando o campo cep perde o foco.
+							$("#cep")
+									.blur(
+											function() {
+
+												//Nova variável "cep" somente com dígitos.
+												var cep = $(this).val()
+														.replace(/\D/g, '');
+
+												//Verifica se campo cep possui valor informado.
+												if (cep != "") {
+
+													//Expressão regular para validar o CEP.
+													var validacep = /^[0-9]{8}$/;
+
+													//Valida o formato do CEP.
+													if (validacep.test(cep)) {
+
+														//Preenche os campos com "..." enquanto consulta webservice.
+														$("#endereco").val(
+																"...");
+														$("#bairro").val("...");
+														$("#cidade").val("...");
+														$("#estado").val("...");
+
+														//Consulta o webservice viacep.com.br/
+														$
+																.getJSON(
+																		"https://viacep.com.br/ws/"
+																				+ cep
+																				+ "/json/?callback=?",
+																		function(
+																				dados) {
+
+																			if (!("erro" in dados)) {
+																				//Atualiza os campos com os valores da consulta.
+																				$(
+																						"#endereco")
+																						.val(
+																								dados.logradouro);
+																				$(
+																						"#bairro")
+																						.val(
+																								dados.bairro);
+																				$(
+																						"#cidade")
+																						.val(
+																								dados.localidade);
+																				$(
+																						"#estado")
+																						.val(
+																								dados.uf);
+																			} //end if.
+																			else {
+																				//CEP pesquisado não foi encontrado.
+																				limpa_formulário_cep();
+																				alert("CEP não encontrado.");
+																			}
+																		});
+													} //end if.
+													else {
+														//cep é inválido.
+														limpa_formulário_cep();
+														alert("Formato de CEP inválido.");
+													}
+												} //end if.
+												else {
+													//cep sem valor, limpa formulário.
+													limpa_formulário_cep();
+												}
+											});
+						});
+	</script>
+</section>  
+
+   
+</html>

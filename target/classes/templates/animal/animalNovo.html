@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="/layout/LayoutPadrao">
+
+<section layout:fragment="conteudo">
+	<div class="container">
+		<div class="section">
+		<h2>Cadastro do Animal</h2>
+		<br/>
+			<form method="post" th:object="${animal}" th:action="@{/animal}">
+				<input type="hidden" th:field="*{id}"/>
+				
+			</form>
+		</div>
+	</div>
+	
+	</section>  
+
+   
+</html>
