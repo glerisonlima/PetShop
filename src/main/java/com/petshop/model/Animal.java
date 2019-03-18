@@ -2,7 +2,6 @@ package com.petshop.model;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,6 +28,7 @@ public class Animal {
 	public String pelagem;
 	public String status;
 	public int idade;
+	public double peso;
 	@ManyToOne
 	@JoinColumn(name="cliente_id")
 	public Cliente cliente;
@@ -64,6 +64,12 @@ public class Animal {
 	}
 	public void setEspecie(String especie) {
 		this.especie = especie;
+	}	
+	public double getPeso() {
+		return peso;
+	}
+	public void setPeso(double peso) {
+		this.peso = peso;
 	}
 	public String getRaça() {
 		return raça;

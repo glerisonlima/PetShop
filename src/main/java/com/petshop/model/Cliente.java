@@ -40,10 +40,9 @@ public class Cliente {
 	private String whatsapp;
 	private String complemento;
 	private String email;
-	private String cnpj;
-	private String ie;
-	private String cpf;
-	private String rg;
+	private String tipo;
+	private String cpf_cnpj;
+	private String rg_ie;
 	private boolean status;
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -138,29 +137,27 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getCnpj() {
-		return cnpj;
+	
+	public String getTipo() {
+		return tipo;
 	}
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
-	public String getIe() {
-		return ie;
+	public String getCpf_cnpj() {
+		return cpf_cnpj;
 	}
-	public void setIe(String ie) {
-		this.ie = ie;
+	public void setCpf_cnpj(String cpf_cnpj) {
+		this.cpf_cnpj = cpf_cnpj;
 	}
-	public String getCpf() {
-		return cpf;
+	public String getRg_ie() {
+		return rg_ie;
 	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public void setRg_ie(String rg_ie) {
+		this.rg_ie = rg_ie;
 	}
-	public String getRg() {
-		return rg;
-	}
-	public void setRg(String rg) {
-		this.rg = rg;
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	public boolean getStatus() {
 		return status;
